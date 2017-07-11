@@ -1,0 +1,28 @@
+bitperchunk = xx(1:1600,3:4);
+i = 0:199;
+subplot(2,1,1);
+for j = 1:8
+layer = bitperchunk(8*i+j,2);
+grid on
+plot(layer)
+hold all
+end
+hold all
+plot(received_chunkbits(:,1));
+thruput_bs = permute(offered(26,1,1:t2),[1 3 2]);
+thruput_helper = permute(offered(1:2,1,t2+1:200),[1 3 2]);
+thruput_helper = max(thruput_helper);
+%reception_rate(1:35) = cumsum(thruput_bs)./cumsum(1:35);%
+%reception_rate(1:30) = prev_bscap/4;
+%reception_rate(31:35) = cap_bs(1)/4;
+%reception_rate(36:200) = cumsum(thruput_helper)./(cumsum(1:165));
+%reception_rate(36:100) = max([cap_mat(1,1)/2 cap_mat(2,1)/3]);
+%reception_rate(101:200) = max([cap_mat(1,1)/2 cap_mat(2,1)/2]);
+reception_rate(1:t1) = (thruput_bs(1:t1));
+reception_rate(t1+1:t2) = (thruput_bs(t1+1:t2));
+reception_rate(t2+1:t3) = (thruput_helper(1:t3-t2));
+reception_rate(t3+1:200) = (thruput_helper(t3-t2+1:200-t3+t2));
+%subplot(2,1,2);
+
+%plot(reception_rate)
+grid on
