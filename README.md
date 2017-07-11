@@ -1,1 +1,2 @@
 # Adaptive-Streaming
+This repository simulates a network of helper nodes and user nodes where all the user nodes are streaming video. Distributed algorithms for transmission scheduling and congestion control are implemented which aim to maximize the Quality of Experience (QoE ) of video streaming in the network. The description of network layouts and detailed simulation results can be found in the paper:  https://arxiv.org/pdf/1304.8083.pdf
